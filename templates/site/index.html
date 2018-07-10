@@ -1,0 +1,156 @@
+{%extends 'blog/base.html'%}
+		<!-- === BEGIN CONTENT === -->
+{%block content%}
+		<div id="content" class="container">
+			<!--<div class="row margin-top-30">-->
+				<!--<div class="col-md-12 text-center">-->
+					<!--<h2 class"text-center">Bring something special to your site with this fresh &amp; clean design</h2>-->
+					<!--<p class"text-center">Aenean venenatis egestas iaculis. Nullam consectetur condimentum dolor at bibendum. Nulla in enim quis ipsum pulvinar imperdiet.</p>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="row margin-top-10">
+				<!-- Carousel Slideshow -->
+				<div id="carousel-example" class="carousel slide" style="width: auto; height:500px; margin: 0 auto" data-ride="carousel">
+					<!-- Carousel Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example" data-slide-to="1"></li>
+						<li data-target="#carousel-example" data-slide-to="2"></li>
+						<li data-target="#carousel-example" data-slide-to="3"></li>
+					</ol>
+					<!-- End Carousel Indicators -->
+					<!-- Carousel Images -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="/static/img/slideshow/1.jpg">
+						</div>
+						<div class="item">
+							<img src="/static/img/slideshow/2.jpg">
+						</div>
+						<div class="item">
+							<img src="/static/img/slideshow/3.jpg">
+						</div>
+						<div class="item">
+							<img src="/static/img/slideshow/4.jpg">
+						</div>
+					</div>
+					<!-- End Carousel Images -->
+					<!-- Carousel Controls -->
+					<a class="left carousel-control" href="#carousel-example" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+					<!-- End Carousel Controls -->
+				</div>
+				<!-- End Carousel Slideshow -->
+			</div>
+			<div class="row margin-vert-30">
+				<!-- Main Text -->
+				<div class="col-md-9">
+					<h2>We are the emerging tech-ware company </h2>
+					<p>the description of company will come hare vision and mission will also come hare
+
+					</p>
+					<a class="btn btn-default" href="#">
+						Read More
+						<i class="fa-chevron-right"></i>
+					</a>
+				</div>
+				<!-- End Main Text -->
+				<!-- Side Column -->
+				<div class="col-md-3">
+					<h3 class="margin-bottom-10">Our services</h3>
+					<ul class="menu">
+						<li>
+							<a class="fa-angle-right" href="#" >Web work</a>
+							web development, web designing, digital marketing, Search Engine optimization
+						</li>
+						<li>
+							<a class="fa-angle-right" href="#" >Data work</a>
+							data extraction and scanning, data recovery, data entry, data analysis,
+							data security
+						</li>
+						<li>
+							<a class="fa-angle-right" href="#" >Support work</a>
+							provide man power that is expert in related technology
+						</li>
+						<li>
+							<a class="fa-angle-right" href="#" >Crisis work</a>
+						</li>
+					</ul>
+				</div>
+				<!-- End Side Column -->
+			</div>
+			<div class="row">
+				<!-- Portfolio -->
+				<!-- Portfolio Item -->
+
+				<div class="portfolio-item col-sm-4 animate fadeIn">
+					<div class="image-hover">
+						<a href="#">
+							<figure>
+
+								<img src="/static/img/frontpage/image1.jpeg" alt="image1" style="height:180px; width:300px">
+								<div class="overlay">
+								<a  href="#">Image Link</a>
+								</div>
+							</figure>
+							<h3 class="margin-top-20">Web work</h3>
+							<p class="margin-top-10 margin-bottom-20">Web Development, Web Designing, Digital Marketing, Search Engine Optimization</p>
+							<div class="btn btn-default">
+								<a class="info" href="http://localhost/build/substance/index.php/quam-nunc-putamus">Read more</a>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- //Portfolio Item// -->
+				<!-- Portfolio Item -->
+				<div class="portfolio-item col-sm-4 animate fadeIn">
+					<div class="image-hover">
+						<a href="#">
+							<figure>
+								<img src="/static/img/frontpage/image2.jpeg" alt="image2" style="height:180px; width:300px">
+								<div class="overlay">
+									<a href="#">Image Link</a>
+								</div>
+							</figure>
+							<h3 class="margin-top-20">Data work</h3>
+							<p class="margin-top-10 margin-bottom-20">Text for describing the data work</p>
+							<div class="btn btn-default">
+								<a class="info" href="http://localhost/build/substance/index.php/quam-nunc-putamus">Read more</a>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- //Portfolio Item// -->
+				<!-- Portfolio Item -->
+				<div class="portfolio-item col-sm-4 animate fadeIn">
+					<div class="image-hover">
+						<a href="#">
+							<figure>
+								<img src="/static/img/frontpage/filler3.jpg" alt="image3">
+								<div class="overlay">
+									<a  href="#">Image Link</a>
+								</div>
+							</figure>
+							<h3 class="margin-top-20">Support  work</h3>
+							<p class="margin-top-10 margin-bottom-20">text for describing the support work</p>
+							<div class="btn btn-default">
+								<a class="info" href="http://localhost/build/substance/index.php/quam-nunc-putamus">Read more</a>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- //Portfolio Item// -->
+				<!-- End Portfolio -->
+			</div>
+			<div class="row">
+				<h2 class="text-center margin-top-10">heading for something important</h2>
+				<p class="text-center margin-bottom-30">description for something important</p>
+			</div>
+		</div>
+	</div>
+	<!-- === END CONTENT === -->
+	{%endblock%}

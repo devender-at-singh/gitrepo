@@ -1,0 +1,94 @@
+{% extends 'blog/base.html'%}
+
+{%block content%}
+		<div id="content" class="container">
+			<!-- === BEGIN CONTENT === -->	<div class="row margin-vert-30">
+			<!-- Main Column -->
+			<div class="col-md-9">
+				<!-- Main Content -->
+				<div class="headline"><h2>Contact Form</h2></div>
+				<p>Post your query, enquiry or suggestion.   </p><br>
+				<!-- Contact Form -->
+				{{message}}
+				{%csrf_token%}
+
+				<form action="/contact/" method="post">{%csrf_token%}
+
+					{{form.non_field_errors}}
+					<label for="{{form.name.id_for_label}}">Name</label>
+					<div class="row margin-bottom-20">
+						<div class="col-md-6 col-md-offset-0">
+							{{form.name.errors}}
+							{{form.name}}
+						</div>
+					</div>
+					
+					<label for="{{form.email.id_for_label}}">Email <span class="color-red">*</span></label>
+					<div class="row margin-bottom-20">
+						<div class="col-md-6 col-md-offset-0">
+							{{form.email.errors}}
+							{{form.email}}
+						</div>
+					</div>
+					<label for="{{form.phone.id_for_label}}">Phone No. <span class="color-red">*</span></label>
+					<div class="row margin-bottom-20">
+						<div class="col-md-6 col-md-offset-0">
+							{{form.phone.errors}}
+							{{form.phone}}
+						</div>
+					</div>
+					
+					<label for="{{form.query.id_for_label}}">Message</label>
+					<div class="row margin-bottom-20">
+						<div class="col-md-8 col-md-offset-0">
+							{{form.query.errors}}
+							{{form.query}}
+						</div>
+					</div>
+					
+					<p><button type="submit" class="btn btn-primary">Send Message</button></p>
+				</form>
+				<!-- End Contact Form -->
+				<!-- End Main Content -->
+			</div>
+			<!-- End Main Column -->
+			<!-- Side Column -->
+			<div class="col-md-3">
+				<!-- Recent Posts -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Contact Info</h3>
+					</div>
+					<div class="panel-body">
+						<p>We are hare to help you, please drop an e-mail or call us</p>
+						<ul class="list-unstyled">
+							<li><i class="fa-phone color-primary"></i>+91-7289817380</li>
+							<li><i class="fa-envelope color-primary"></i>info@techware.com</li>
+							<li><i class="fa-home color-primary"></i>https://www.techware.com</li>
+						</ul>
+						<ul class="list-unstyled">
+							<li><strong class="color-primary">Monday-Friday:</strong> 10am to 5pm</li>
+							<li><strong class="color-primary">Saturday:</strong> 10am to 1pm</li>
+							<li><strong class="color-primary">Sunday:</strong> Closed</li>
+						</ul>
+					</div>
+				</div>
+				<!-- End recent Posts -->
+				<!-- About -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">About</h3>
+					</div>
+					<div class="panel-body">
+						We are the company that provide services on the demand of client round the clock at any time
+						and any place.
+					</div>
+				</div>
+				<!-- End About -->
+				
+			</div>
+			<!-- End Side Column -->
+		</div>
+	</div>
+	<!-- === END CONTENT === -->
+{%endblock%}

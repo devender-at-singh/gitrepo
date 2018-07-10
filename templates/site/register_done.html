@@ -1,0 +1,13 @@
+{%extends './blog/base.html'%}
+{%block title%}welcome user{%endblock%}
+{%block content%}
+<center>
+welcome {{new_user.first_name}}
+<br>{{request.user.username}}
+<p>your account has been created successfully now you<a href="{% url 'signin'%}">Login</a>
+
+
+
+
+</p></center>
+{%endblock%}
