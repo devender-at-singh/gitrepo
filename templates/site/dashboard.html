@@ -1,0 +1,15 @@
+{% extends './blog/base.html' %}
+
+{%block title%}Dashboard{%endblock%}
+
+{%block content%}
+
+Welcome to dash board{%if request.user.is_authenticated %} Mr. {{request.user.username}}{%endif%}
+
+<br> Now <a href="{%url 'edit' %}">update/edit</a> your profile
+here is the link to change your password
+
+{% if request.user.is_authenticated%}
+<a href="/password_change/">Change the password</a>
+{%endif%}
+{%endblock%}

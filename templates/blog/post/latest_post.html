@@ -1,0 +1,34 @@
+
+
+
+
+
+
+<div class="recent-post">
+
+
+
+{% for post in latest_posts%}
+<ul class="post-list margin-top-10">
+    <li><div class="recent-post">
+        <a href="{{post.get_absolute_url}}">
+            {%for img in post.images.all%}
+            <img class="pull-left" src="{{img.image.url}}" height="60" width="60">{%endfor%}
+        </a>
+    <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+    <br>
+    <span class="recent-post-date">
+	{{post.publish.month}} {{post.publish.day}}, {{post.publish.year}}
+    </span></div>
+    </li>
+</ul>
+
+{% endfor %}
+
+</div>
+
+
+
+
+
+

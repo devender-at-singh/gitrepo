@@ -1,0 +1,71 @@
+
+
+
+{% if sent %}
+<strong>E-mail successfully sent</strong>
+<p>
+"{{ post.title }}" was successfully sent to {{ cd.to }}.
+</p>
+{% else %}
+
+<form action="{% url 'blog:post_share' post.id %}" method="post" class="signup-page">
+
+
+<!--{{ form.as_table }}-->
+<!--{% csrf_token %}-->
+
+<!--<table>-->
+    <!--{% for field in form %}-->
+      <!--<tr>-->
+          <!--<th><label>{{field.label_tag}}</label></th>-->
+        <!--<td>-->
+
+          <!--{{ field.errors }}-->
+          <!--{{ field }}-->
+
+        <!--</td>-->
+      <!--</tr>-->
+    <!--{% endfor %}-->
+    <!--<input type="text" name="{{field.label_tag}}">-->
+  <!--</table>-->
+
+<table>
+
+      <tr>
+          <th><label>Name :. </label></th>
+
+        <td>
+
+
+          <input type="text" name="name">
+{{ form.name.errors }}<p>
+        </td>
+
+      </tr>
+      <tr>
+          <th><label>Email :.</label></th>
+          <td><input type="email" name="email">{{ form.name.errors }}<p></td>
+
+     </tr>
+      <tr>
+          <th><label>To :.</label></th>
+
+          <td><input type="email" name="to">{{ form.name.errors }}<p></td>
+
+
+      </tr>.
+      <tr>
+          <th><label>Comment :. </label></th>
+
+          <td><input type="text" name="comments">{{ form.name.errors }}<p></td>
+
+      </tr>
+
+  </table>
+
+    <center><input type="submit" value="share" ></center>
+{% csrf_token %}
+</form>
+
+
+{% endif %}

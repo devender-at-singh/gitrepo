@@ -1,0 +1,74 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<a href="#">education</a>-->
+<!--<a href="#">health</a>-->
+<!--<a href="#">technology</a>-->
+<!--<a href="#">life style</a>-->
+<!--<a href="#">whatsapp post</a>-->
+<!--<a href="#">music and entertainment</a>-->
+<!--<a href="#">todu music on red fm</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<style>
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+</style>
+{% block header %}
+
+<div id="pre_header" class="visible-lg"></div>
+	<div id="header" class="container">
+		<div class="row">
+			<!-- Logo -->
+			<div class="logo" style="height:125px; width:225px; border-radius:8px;">
+				<a href="index.html" title="">
+					<img src="{{STATIC_URL}}img/images1.jpeg" alt="Logo" />
+				</a>
+			</div>
+			<!-- End Logo -->
+			<!-- Top Menu -->
+			<div class="col-md-12 margin-top-30">
+				<div id="hornav" class="pull-right visible-lg">
+					<ul class="nav navbar-nav">
+						<li><a href="/index/">Home</a></li>
+						<li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+						<li><a href="/contact/">Contact us</a></li>
+						<li><a href="/aboutus/">About us</a></li>
+						{% if not request.user.is_authenticated %}
+						<li><a href="/signin/">Sign in</a></li>
+						<li><a href="/signup/">Sign up</a></li>
+						{%endif%}
+						{% if request.user.is_authenticated %}
+						<li class="parent"><span>{{request.user.first_name}}</span>
+									<ul>
+										<li><a href="/dashboard/">My Home</a>
+										<li><a href="/edit/">Update Profile</a></li>
+										<li><a href="/change-password/">Change Password</a></li>
+										<li><a href="/admin/">Blog Admin</a></li>
+										<li><a href="/logout/">Logout</a></li>
+									</ul>
+								</li>
+						{%endif%}
+					</ul>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<!-- End Top Menu -->
+			</div>
+		</div>
+
+		<!-- === END HEADER === -->
+{% endblock %}

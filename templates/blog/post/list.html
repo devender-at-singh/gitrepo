@@ -1,0 +1,167 @@
+
+{% extends "./blog/base.html"%}
+{%load blog_tags%}
+
+		<!-- === BEGIN CONTENT === -->
+
+{%block content%}
+
+		<div id="content" class="container">
+
+			<div class="row margin-vert-30">
+				<!-- Main Column -->
+				<div class="col-md-9">
+					<!-- Blog Post -->
+					{% for post in posts%}
+					<div class="blog-post padding-bottom-20">
+						<!-- Blog Item Header -->
+						<div class="blog-item-header">
+							<!-- Date -->
+							<!--<div class="blog-post-date pull-left">-->
+
+								<!--<span class="day">#{{post.publish.day}}</span>-->
+								<!--<span class="month">#{{post.publish.month}}</span>-->
+							<!--</div>-->
+							<!-- End Date -->
+							<!-- Title -->
+							<h2>
+							<a href="{{  post.get_absolute_url }}">{{ post.title }}</a>
+							</h2>
+							<div class="clearfix"></div>
+							<!-- End Title -->
+						</div>
+						<!-- End Blog Item Header -->
+						<!-- Blog Item Details -->
+						<div class="blog-post-details">
+							<!-- Author Name -->
+							<div class="blog-post-details-item blog-post-details-item-left user-icon">
+								<i class="fa fa-user"></i>
+								<a href="#">{{post.author}}</a>
+							</div>
+							<!-- End Author Name -->
+							<!-- Tags -->
+							{% for tag in post.tags.all %}
+							<div class="blog-post-details-item blog-post-details-item-left blog-post-details-tags tags-icon">
+								<i class="fa fa-tag"></i>
+
+
+								<a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>,
+								{% if not forloop.last %}, {% endif %}
+
+
+							</div>
+							{% endfor %}
+							<!-- End Tags -->
+							<!-- # of Comments -->
+							<div
+								class="blog-post-details-item blog-post-details-item-left blog-post-details-item-last comments-icon">
+								{% with comments.count as total_comments %}
+
+
+									<i class="fa fa-comments"></i>
+									{{ total_comments }} comment{{ total_comments|pluralize }}
+
+
+								{% endwith %}
+							</div>
+							<!-- End # of Comments -->
+						</div>
+						<!-- End Blog Item Details -->
+						<!-- Blog Item Body -->
+						<div class="blog">
+							<div class="clearfix"></div>
+							<div class="blog-post-body row margin-top-15">
+								<div class="col-md-5">
+									{% for img in post.images.all %}
+									<img class="pull-left" src="{{ img.image.url }}" height="400" width="350">{%endfor%}
+								</div>
+								<div class="col-md-7">
+									<p>
+
+
+
+									{{ post.body|truncatewords:45 }}
+									</p>
+									<!-- Read More -->
+									<a href="{{post.get_absolute_url}}" class="btn btn-primary">
+										Read More <i class="icon-chevron-right readmore-icon"></i>
+									</a>
+									<!-- End Read More -->
+								</div>
+							</div>
+						</div>
+						<!-- End Blog Item Body -->
+					</div>
+					{% endfor %}
+					<!-- End Blog Item -->
+					<!--###########################################################################-->
+
+					<!-- Pagination -->
+					<ul class="pager">
+
+						{% include "pagination.html" with page=posts %}
+					</ul>
+					<!-- End Pagination -->
+				</div>
+				<!-- End Main Column -->
+				<!-- Side Column -->
+
+				<div class="col-md-3">
+					<!-- Blog Tags -->
+
+					<div class="blog-tags">
+						<h3><em>Tags</em></h3>
+						<ul class="blog-tags">
+
+							{%for tag in all_tags%}
+							<li><a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="blog-tag"><strong>{{ tag }}</strong></a>
+
+							</li>
+							{%endfor%}
+						</ul>
+					</div>
+
+				</div>
+
+						<!-- End Blog Tags -->
+						<!-- Recent Posts -->
+
+				{% get_most_commented_post 5 as most_commented_post %}
+
+						<div class="recent-posts">
+							<h3><em>Most Commented Posts</em></h3>
+							{%get_most_commented_post 5 as most_commented_post%}
+							{% for post in most_commented_post %}
+
+							<ul class="posts-list margin-top-10">
+
+								<li>
+									<div class="recent-post">
+                                    <a href="{{post.get_absolute_url}}">
+										{%for img in post.images.all%}
+											<img class="pull-left" src="{{img.image.url}}" height="60" width="60">{%endfor%}
+										</a>
+										<a href="{{post.get_absolute_url}}" class="posts-list-title"><b>{{post.title}}</b> </a>
+										<br>
+										<span class="recent-post-date">
+										{{post.publish.month}} {{post.publish.day}}, {{post.publish.year}}
+										</span>
+									</div>
+
+							</ul>
+							{%endfor%}
+						</div>
+						<!--<div class="recent-posts">-->
+							<!--<h3>Recent Activity</h3>-->
+							<!--#{% get_latest_post %}-->
+
+
+						<!--</div>-->
+				<div class="clearfix"></div>
+
+				</div>
+
+
+
+</div>
+{%endblock%}
